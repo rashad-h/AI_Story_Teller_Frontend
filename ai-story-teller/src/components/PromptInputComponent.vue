@@ -6,13 +6,14 @@
     v-model="prompt"
     rows="3"
     @input="handleInput"
+    @keydown="handleKeydown"
   ></textarea>
 </template>
 
 <script>
 export default {
   name: 'PromptInputComponent',
-  emits: ['updateStory'],
+  emits: ['updateStory', 'submit'],
   data() {
     return {
       prompt: '', // State to store the story text
@@ -21,6 +22,13 @@ export default {
   methods: {
     handleInput() {
       this.$emit('updateStory', this.prompt); // Emit the input event to parent
+    },
+    handleKeydown(event) {
+      if (event.key === 'Enter' && this.prompt.trim() !== '') {
+        event.preventDefault(); // Prevent default newline behavior
+        this.$emit('submit'); // Emit submit event
+        this.prompt = ''; // Clear the input field after submission
+      }
     },
   },
 };

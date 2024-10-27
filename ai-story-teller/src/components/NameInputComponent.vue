@@ -9,7 +9,7 @@
       v-model="name"
       @input="handleInput"
     />
-    <PromptInputComponent v-show="name.length > 0" @updateStory="updateStory"/>
+    <PromptInputComponent v-show="name.length > 0" @updateStory="updateStory" @submit="submitPrompt"/>
     <SubmitButtonComponent 
     v-show="prompt.length > 0" 
     @submit="submitPrompt" 
@@ -48,6 +48,9 @@ export default {
     updateStory(prompt) {
      this.prompt = prompt
     },
+    submitPrompt() {
+      console.log("Submitted")
+    }
     
   },
 };
