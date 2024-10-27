@@ -1,0 +1,53 @@
+<!-- src/components/PromptInputComponent.vue -->
+<template>
+  <textarea
+    class="large-text-field"
+    placeholder="Type your story here..."
+    v-model="prompt"
+    rows="3"
+    @input="handleInput"
+  ></textarea>
+</template>
+
+<script>
+export default {
+  name: 'PromptInputComponent',
+  emits: ['updateStory'],
+  data() {
+    return {
+      prompt: '', // State to store the story text
+    };
+  },
+  methods: {
+    handleInput() {
+      this.$emit('updateStory', this.prompt); // Emit the input event to parent
+    },
+  },
+};
+</script>
+
+<style scoped>
+.large-text-field {
+  font-size: 1.4em;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #b463ffd3; /* Background color */
+  color: #f1eaff; /* Text color */
+  width: 500px;
+  max-width: 500px; /* Set a max width */
+  margin-top: 10px; /* Space between input and textarea */
+  resize: none; /* Disable resizing */
+  text-align: center;
+  animation: fadeIn 0.4s;
+}
+
+.large-text-field::placeholder {
+  color: #f1eaffb2;
+}
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+</style>

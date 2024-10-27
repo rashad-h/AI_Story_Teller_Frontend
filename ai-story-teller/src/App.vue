@@ -1,12 +1,14 @@
 <template>
   <div class="app-container">
     <ProfileComponent />
-    <TitleComponent />
-    <StartButtonComponent v-if="!isStarted ||  !animationComplete"
-    :isMorphing="isStarted"
+    <transition name="fade">
+      <TitleComponent v-if="!isStarted" />
+    </transition>
+    <StartButtonComponent v-if="!isStarted"
     @click="handleStart"
     :buttonWidth="buttonWidth"/>
-    <NameInputComponent v-if="isStarted && animationComplete" 
+    <NameInputComponent v-if="isStarted" 
+    ref="nameInput"
     @updateName="updateUserName"/>
   </div>
 </template>
@@ -39,11 +41,14 @@ export default {
 
   methods: {
     handleStart() {
-      this.isStarted = true; // Set the state to true when the button is clicked
-      this.buttonWidth = '300px';
-      setTimeout(() => {
-          this.animationComplete = true; // Allow time for the animation to complete
-      }, 1400); // Match this duration to the animation time
+        this.buttonWidth = '300px';
+        this.isStarted = true; // Set the state to true when the button is clicked
+        setTimeout(() => {
+            //   this.animationComplete = true; 
+            this.$refs.nameInput.startMoving();
+            
+            // Allow time for the animation to complete
+        }, 400); // Match this duration to the animation time
     },
     updateUserName(name) {
       this.userName = name; // Update the user's name when emitted from NameInputComponent
@@ -65,7 +70,14 @@ export default {
   min-height: 100vh;
   background-color: #240e5fe7; /* Faded dark background, Monokai Pro Octagon base */
   color: #f8f8f2; /* Light text color */
+  position: relative;
 }
 
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.4s ease;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0; /* Start or end with opacity 0 */
+}
 
 </style>
