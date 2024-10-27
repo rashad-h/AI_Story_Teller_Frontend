@@ -40,7 +40,7 @@ export default {
     padding: 10px;
     border: none;
     border-radius: 10px;
-    background-color: #66d9ef; /* Faded blue button color */
+    background-color: #d09bfef6; /* Faded blue button color */
     color: #272822; /* Dark text color for contrast */
     cursor: pointer;
     transition: opacity 0.4s ease;
