@@ -52,7 +52,6 @@ export default {
     },
     updateUserName(name) {
       this.userName = name; // Update the user's name when emitted from NameInputComponent
-      console.log('User name:', this.userName); // For demonstration, you can use this data later
     },
   },
 

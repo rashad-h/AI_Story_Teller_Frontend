@@ -11,7 +11,7 @@
     />
     <PromptInputComponent v-show="name.length > 0" @updateStory="updateStory" @submit="submitPrompt"/>
     <SubmitButtonComponent 
-    v-show="prompt.length > 0" 
+    v-show="prompt.length > 0 && name.length > 0" 
     @submit="submitPrompt" 
     />
 
