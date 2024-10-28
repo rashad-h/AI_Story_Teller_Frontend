@@ -2,14 +2,19 @@
   <div class="app-container">
     <ProfileComponent />
     <transition name="fade">
-      <TitleComponent v-if="!isStarted" />
+      <TitleComponent v-if="!isStarted && !submitted" />
     </transition>
-    <StartButtonComponent v-if="!isStarted"
+    <StartButtonComponent v-if="!isStarted && !submitted"
     @click="handleStart"
     :buttonWidth="buttonWidth"/>
-    <NameInputComponent v-if="isStarted" 
+    <NameInputComponent v-if="isStarted && !submitted" 
     ref="nameInput"
-    @updateName="updateUserName"/>
+    @updateName="updateUserName"
+    @submitData="handleSubmitData"/>
+    <ResultDisplayComponent v-if="submitted"
+      :name="submittedName"
+      :prompt="submittedPrompt"
+    />
   </div>
 </template>
 
@@ -19,6 +24,8 @@ import TitleComponent from './components/TitleComponent.vue';
 import StartButtonComponent from './components/StartButtonComponent.vue';
 import ProfileComponent from './components/ProfileComponent.vue'
 import NameInputComponent from './components/NameInputComponent.vue'
+import ResultDisplayComponent from './components/ResultDisplayComponent.vue';
+
 
 
 export default {
@@ -28,6 +35,7 @@ export default {
     StartButtonComponent,
     ProfileComponent,
     NameInputComponent,
+    ResultDisplayComponent,
   },
 
   data() {
@@ -36,6 +44,9 @@ export default {
       userName: '', // Store the user's name
       animationComplete: false,
       buttonWidth: 'auto',
+      submitted: false,
+      submittedName: '',
+      submittedPrompt: '',
     };
   },
 
@@ -52,6 +63,11 @@ export default {
     },
     updateUserName(name) {
       this.userName = name; // Update the user's name when emitted from NameInputComponent
+    },
+    handleSubmitData({ name, prompt }) {
+      this.submitted = true;
+      this.submittedName = name;
+      this.submittedPrompt = prompt;
     },
   },
 

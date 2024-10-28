@@ -23,7 +23,7 @@
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background-color: #4caf50; /* Green background */
+    background-color: #1d01bb; /* Green background */
     color: white; /* White text */
     font-size: 1em;
     cursor: pointer;
@@ -32,7 +32,7 @@
   }
   
   .submit-button:hover {
-    background-color: #45a049; /* Darker green on hover */
+    background-color: #1100ff; /* Darker green on hover */
   }
 
   @keyframes fadeIn {

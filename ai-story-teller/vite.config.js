@@ -12,5 +12,17 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
+  },
+  server: {
+    proxy: {
+      '/story': {
+        target: 'http://192.168.1.130:9595',
+        changeOrigin: true,
+        rewrite: (path) => {
+          console.log(`Proxying request to: ${path}`); // Log the path being proxied
+          return path;
+        },
+      },
+    },
   }
 })

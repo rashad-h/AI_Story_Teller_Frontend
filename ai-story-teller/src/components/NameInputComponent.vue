@@ -30,7 +30,7 @@ export default {
     PromptInputComponent,
     SubmitButtonComponent,
   },
-  emits: ['updateName'],
+  emits: ['updateName', 'submitData'],
   data() {
     return {
       name: '', // State to store the user's name
@@ -50,6 +50,7 @@ export default {
     },
     submitPrompt() {
       console.log("Submitted")
+      this.$emit('submitData', { name: this.name, prompt: this.prompt });
     }
     
   },
