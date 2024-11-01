@@ -1,15 +1,20 @@
 <!-- src/components/PromptInputComponent.vue -->
 <template>
-  <textarea
-    class="large-text-field"
-    placeholder="Type your story here..."
-    v-model="prompt"
-    rows="3"
-    @input="handleInput"
-    @keydown="handleKeydown"
-  ></textarea>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-11 col-md-10 col-lg-10 text-center"> <!-- Added text-center -->
+                <textarea
+                    class="large-text-field w-100"
+                    placeholder="Type your story here..."
+                    v-model="prompt"
+                    rows="3"
+                    @input="handleInput"
+                    @keydown="handleKeydown"
+                ></textarea>
+            </div>
+        </div>
+    </div>
 </template>
-
 <script>
 export default {
   name: 'PromptInputComponent',

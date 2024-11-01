@@ -1,6 +1,6 @@
 <template>
     <button :class="{'start-button': true}"
-    :style="{ width: buttonWidth }"
+    :style="{ width: '100px' }"
     @click="handleClick"
     >
     Start
@@ -18,7 +18,7 @@ export default {
         // },
         buttonWidth: {
             type: String,
-            default: 'auto', // Default width
+            default: '100px', // Default width
         },
     },
     methods: {

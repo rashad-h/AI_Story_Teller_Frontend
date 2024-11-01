@@ -1,6 +1,16 @@
+.result-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #2c2c54;
+    color: #ffffff;
+    border-radius: 8px;
+    font-size: 1.2em;
+    text-align: center;
+  }
 
 .story-container {
   margin-bottom: 20px;
+  animation: fadeIn 2.0s;
 }
 
 .story-text-container {
@@ -8,7 +18,9 @@
   border-radius: 8px;
   padding: 15px;
   margin-bottom: 15px;
+  animation: fadeInCharacter 2s forwards;
 }
+
 
 .story-text-container h2 {
   font-size: 1.5em;
@@ -19,6 +31,27 @@
   font-size: 1.2em;
   line-height: 1.6;
 }
+
+@media (max-width: 576px) { /* Small devices (phones) */
+  .story-text-container h2 {
+    font-size: 1.2em; /* Smaller font size for h2 */
+  }
+
+  .story-text-container p {
+    font-size: 1em; /* Smaller font size for p */
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) { /* Medium devices (tablets) */
+  .story-text-container h2 {
+    font-size: 1.4em; /* Slightly smaller font size for h2 */
+  }
+
+  .story-text-container p {
+    font-size: 1.1em; /* Slightly smaller font size for p */
+  }
+}
+
 
 .choices-container {
   border-radius: 8px;
@@ -46,6 +79,8 @@
   transition: background-color 0.5s ease;
   border: none;
   cursor: pointer;
+  opacity: 0;
+  animation: fadeInCharacter 1s forwards;
 }
 
 .choice-box.disabled, .choice-box.disabled:hover{
@@ -60,6 +95,7 @@
   background-color: #a853d0; /* Light grey background for disabled state */
   color: #ffffff; /* Greyed out text color */
   cursor: default;
+  opacity: 100%;
 }
 
 .choice-box:hover {
@@ -73,4 +109,48 @@
   padding: 15px;
   font-style: italic;
   color: #a1a1e5;
+  opacity: 0;
+  animation: fadeInCharacter 1s forwards;
 }
+
+.story-character {
+    opacity: 0; /* Start invisible */
+    animation: fadeInCharacter 0.5s forwards; /* Animate to visible */
+}
+
+.story-character, .animate {
+  opacity: 1; /* Start invisible */
+}
+
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100px; /* Adjust as needed */
+}
+
+.spinner {
+  border: 8px solid #f3f3f3; /* Light grey */
+  border-top: 8px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 50px; /* Size of the spinner */
+  height: 50px; /* Size of the spinner */
+  animation: spin 2s linear infinite; /* Spin animation */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+  
+@keyframes fadeInCharacter {
+    to {
+        opacity: 1; /* End visible */
+    }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }

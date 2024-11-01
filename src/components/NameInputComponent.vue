@@ -62,6 +62,7 @@ export default {
   display: flex;
   flex-direction: column; /* Stack the input and textarea vertically */
   align-items: center;
+  width: 100%;
 }
 
 .text-field {
