@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <ProfileComponent />
+    <!-- <ProfileComponent /> -->
     <transition name="fade">
       <TitleComponent v-if="!isStarted && !submitted" />
     </transition>

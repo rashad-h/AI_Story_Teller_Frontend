@@ -1,7 +1,6 @@
 html, body, #app{
     height: 100%;
     background-color: #2d2a2e; /* Faded dark background, Monokai Pro Octagon base */
-    overflow: hidden;
 }
 
 html, body, #app {
@@ -9,3 +8,5 @@ html, body, #app {
     padding: 0;
     box-sizing: border-box;
 }
+
+@import'~bootstrap/dist/css/bootstrap.css'

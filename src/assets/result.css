@@ -1,0 +1,76 @@
+
+.story-container {
+  margin-bottom: 20px;
+}
+
+.story-text-container {
+  background-color: #3a3a5f;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.story-text-container h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.story-text-container p {
+  font-size: 1.2em;
+  line-height: 1.6;
+}
+
+.choices-container {
+  border-radius: 8px;
+  padding: 0px;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
+
+.choice-box {
+  background-color: #47478a;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 1em;
+  text-align: center;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  flex: 1;
+  margin: 0px;
+  margin-bottom: 10px;
+  transition: background-color 0.5s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.choice-box.disabled, .choice-box.disabled:hover{
+  background-color: #47478a; /* Light grey background for disabled state */
+  opacity: 50%;
+  cursor: not-allowed; /* Change cursor to not-allowed */
+  color: #ffffff; /* Greyed out text color */
+}
+
+
+.choice-box.selected, .choice-box.selected:hover{
+  background-color: #a853d0; /* Light grey background for disabled state */
+  color: #ffffff; /* Greyed out text color */
+  cursor: default;
+}
+
+.choice-box:hover {
+  background-color: #747491; /* Darker shade on hover */
+}
+
+.description-container {
+  font-size: 0.8em;
+  background-color: #35355b;
+  border-radius: 8px;
+  padding: 15px;
+  font-style: italic;
+  color: #a1a1e5;
+}
