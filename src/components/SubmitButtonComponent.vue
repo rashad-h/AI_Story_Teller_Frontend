@@ -1,7 +1,7 @@
 <!-- src/components/SubmitButtonComponent.vue -->
 <template>
     <button class="submit-button" @click="handleClick">
-      Submit
+      Generate Story
     </button>
   </template>
   
