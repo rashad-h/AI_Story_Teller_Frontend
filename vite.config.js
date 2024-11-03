@@ -17,8 +17,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/story': {
-        // target: 'http://192.168.1.130:9595',
-        target: 'http://127.0.0.1:8000/',
+        target: 'https://mtx9ed9krb.eu-west-2.awsapprunner.com/',
         changeOrigin: true,
         rewrite: (path) => {
           console.log(`Proxying request to: ${path}`); // Log the path being proxied
