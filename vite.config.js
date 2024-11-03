@@ -14,16 +14,17 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-  server: {
-    proxy: {
-      '/story': {
-        target: 'https://mtx9ed9krb.eu-west-2.awsapprunner.com/',
-        changeOrigin: true,
-        rewrite: (path) => {
-          console.log(`Proxying request to: ${path}`); // Log the path being proxied
-          return path;
-        },
-      },
-    },
-  }
+//   server: {
+//     proxy: {
+//       '/story': {
+//         // test
+//         target: 'https://mtx9ed9krb.eu-west-2.awsapprunner.com/',
+//         changeOrigin: true,
+//         rewrite: (path) => {
+//           console.log(`Proxying request to: ${path}`); // Log the path being proxied
+//           return path;
+//         },
+//       },
+//     },
+//   }
 })

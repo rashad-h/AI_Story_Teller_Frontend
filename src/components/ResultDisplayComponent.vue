@@ -58,7 +58,7 @@ export default {
       this.isLoading = true; // Start loading
       if (this.name && this.prompt) {
         try {
-          const response = await fetch('/story/generate', {
+          const response = await fetch('https://mtx9ed9krb.eu-west-2.awsapprunner.com/story/generate', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -149,7 +149,7 @@ export default {
         messages.push(choicesMessage);
 
         try {
-          const response = await fetch('/story/generate', {
+          const response = await fetch('https://mtx9ed9krb.eu-west-2.awsapprunner.com/story/generate', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
